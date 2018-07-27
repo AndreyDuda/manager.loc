@@ -14,13 +14,11 @@ class ChangeEmployeesTable extends Migration
     public function up()
     {
         Schema::table('employees', function (Blueprint $table) {
-            //
-            $table->integer('role_id')->unsigned()->default(5);
+            $table->integer('role_id')->unsigned()->notNull();
             $table->foreign('role_id')->references('id')->on('roles');
 
-            $table->integer('department_id')->unsigned()->nullable();
+            $table->integer('department_id')->unsigned()->notNull();
             $table->foreign('department_id')->references('id')->on('departments');
-
         });
     }
 
