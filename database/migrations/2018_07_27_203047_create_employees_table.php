@@ -17,10 +17,10 @@ class CreateEmployeesTable extends Migration
             $table->increments('id');
             $table->string('surname',255);
             $table->string('name',255);
-            $table->string('patronymi', 255);
+            $table->string('patronymic', 255);
             $table->float('salary');
-            $table->dateTime('date_started_at_work');
-            $table->dateTime('date_finish_at_work');
+            $table->date('date_started_at_work');
+
             $table->timestamps();
         });
     }
