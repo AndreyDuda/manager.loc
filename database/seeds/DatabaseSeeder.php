@@ -12,8 +12,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
-        /*DB::table('roles')->insert(
-            [//password 123456
+        DB::table('roles')->insert(
+            [
                 [
                     'title'     => 'Директор',
                     'name'      => 'Director',
@@ -39,10 +39,10 @@ class DatabaseSeeder extends Seeder
                     'name'      => 'Employee',
                     'parent_id' => '4'
                 ]
-            ]);*/
+            ]);
 
 
-        /*$this->call(departmentsTableSeeder::class);*/
+        $this->call(departmentsTableSeeder::class);
         $this->call(employeesTableSeeder::class);
     }
 }

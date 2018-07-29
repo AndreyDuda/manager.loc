@@ -13,25 +13,79 @@ class employeesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('roles')->insert(
+        DB::table('employees')->insert(
             [
                 [
-                    'surname'              => 'Полководец',
-                    'name'                 => 'Роман',
-                    'patronymic'           => 'Сергеевич',
+                    'surname'              => 'Polkovodec',
+                    'name'                 => 'Roman',
+                    'patronymic'           => 'Sergeevich',
                     'salary'               => '50000',
-                    'date_started_at_work' => Carbon::now(),
-                    'role_id'              => 0,
+                    'date_started_at_work' => date('Y-m-d H:i:s'),
+                    'role_id'              => 1,
                     'department_id'        => 0,
                 ],
                 [
-                    'surname'              => 'Дзюба',
-                    'name'                 => 'Виктор',
-                    'patronymic'           => 'Николаевич',
+                    'surname'              => 'Dzuba',
+                    'name'                 => 'Viktor',
+                    'patronymic'           => 'Nikolayovich',
                     'salary'               => '45000',
-                    'date_started_at_work' => Carbon::now(),
-                    'role_id'              => 1,
+                    'date_started_at_work' => date('Y-m-d H:i:s'),
+                    'role_id'              => 2,
                     'department_id'        => 0,
+                ],
+                [
+                    'surname'              => 'Mishin',
+                    'name'                 => 'Ivan',
+                    'patronymic'           => 'Ivanovich',
+                    'salary'               => '40000',
+                    'date_started_at_work' => date('Y-m-d H:i:s'),
+                    'role_id'              => 3,
+                    'department_id'        => 1,
+                ],
+                [
+                    'surname'              => 'Bunak',
+                    'name'                 => 'Dmitriy',
+                    'patronymic'           => 'Andreevich',
+                    'salary'               => '35000',
+                    'date_started_at_work' => date('Y-m-d H:i:s'),
+                    'role_id'              => 4,
+                    'department_id'        => 1,
+                ],
+                [
+                    'surname'              => 'Mishin',
+                    'name'                 => 'Ivan',
+                    'patronymic'           => 'Ivanovich',
+                    'salary'               => '40000',
+                    'date_started_at_work' => date('Y-m-d H:i:s'),
+                    'role_id'              => 3,
+                    'department_id'        => 2,
+                ],
+                [
+                    'surname'              => 'Mirniy',
+                    'name'                 => 'Roman',
+                    'patronymic'           => 'Ivanovich',
+                    'salary'               => '35000',
+                    'date_started_at_work' => date('Y-m-d H:i:s'),
+                    'role_id'              => 4,
+                    'department_id'        => 2,
+                ],
+                [
+                    'surname'              => 'Kapustin',
+                    'name'                 => 'Ivan',
+                    'patronymic'           => 'Alekseevich',
+                    'salary'               => '40000',
+                    'date_started_at_work' => date('Y-m-d H:i:s'),
+                    'role_id'              => 3,
+                    'department_id'        => 2,
+                ],
+                [
+                    'surname'              => 'Frosin',
+                    'name'                 => 'Andrey',
+                    'patronymic'           => 'Bogdanovich',
+                    'salary'               => '35000',
+                    'date_started_at_work' => date('Y-m-d H:i:s'),
+                    'role_id'              => 4,
+                    'department_id'        => 2,
                 ]
             ]);
 

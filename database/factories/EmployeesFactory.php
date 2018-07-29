@@ -11,6 +11,6 @@ $factory->define(App\Employees::class, function (Faker $faker) {
         'salary'               => $faker->numberBetween($min = 10000, $max = 30000),
         'date_started_at_work' => $faker->date($format = 'Y-m-d H:i:s', $max = 'now'),
         'role_id'              => 5,
-        'department_id'        => $faker->numberBetween($min = 1, $max = 5),
+        'department_id'        => $faker->numberBetween($min = 1, $max = 3),
     ];
 });
