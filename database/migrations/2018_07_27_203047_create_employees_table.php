@@ -20,6 +20,9 @@ class CreateEmployeesTable extends Migration
             $table->string('patronymic', 255);
             $table->float('salary');
             $table->date('date_started_at_work');
+            $table->integer('role_id')->unsigned();
+
+            $table->integer('department_id')->unsigned();
 
             $table->timestamps();
         });

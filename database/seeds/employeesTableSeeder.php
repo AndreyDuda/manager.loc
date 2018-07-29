@@ -13,8 +13,8 @@ class employeesTableSeeder extends Seeder
      */
     public function run()
     {
-        /*DB::table('roles')->insert(
-            [//password 123456
+        DB::table('roles')->insert(
+            [
                 [
                     'surname'              => 'Полководец',
                     'name'                 => 'Роман',
@@ -33,8 +33,9 @@ class employeesTableSeeder extends Seeder
                     'role_id'              => 1,
                     'department_id'        => 0,
                 ]
-            ]);*/
+            ]);
 
-        factory(app\Employees::class, 49988)->create();
+        //factory(App\Employees::class, 49988)->create();
+        factory(App\Employees::class, 499)->create();
     }
 }
