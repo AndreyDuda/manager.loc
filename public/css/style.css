@@ -1,0 +1,23 @@
+.container-fluid{
+    padding:0;
+    margin:0;
+}
+.table_employees{
+    width: 100%;
+}
+.table_employees tr.table_head{
+    background: gray;
+    color:white;
+}
+.maine_block{
+    margin: 15px;
+}
+.justify-content-end{
+    background:#000;
+    color:#ffff;
+}
+.justify-content-end a {
+    color:#fff;
+}
+
+

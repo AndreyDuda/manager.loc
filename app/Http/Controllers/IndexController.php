@@ -19,7 +19,8 @@ class IndexController extends SiteController
 
     public function index()
     {
-        $employees = $this->employees_rep->get();
+        $employees = $this->employees_rep->get('*', true);
+
         $content = view( 'index.index')->with('employees', $employees)->render();
         $this->vars = array_add($this->vars, 'content', $content);
         return $this->renderOutput();
