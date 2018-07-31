@@ -16,4 +16,14 @@ class EmployeeRepository extends Repository
     {
         $this->model = $employees;
     }
+
+    public function get($select = '*', $order=false)
+    {
+        $builder = $this->model->select($select);
+
+        if($order){
+            $builder->orderBy('department_id','ASC')->orderBy('role_id','ASC');
+        }
+        return $builder->get();
+    }
 }

@@ -18,7 +18,7 @@ abstract class Repository
         $builder = $this->model->select($select);
 
         if($order){
-            $builder->orderBy('department_id','ASC')->orderBy('role_id','ASC');
+            $builder->orderBy($order);
         }
         return $builder->get();
     }
