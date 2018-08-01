@@ -19,5 +19,9 @@
 .justify-content-end a {
     color:#fff;
 }
+ul{
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
 
 

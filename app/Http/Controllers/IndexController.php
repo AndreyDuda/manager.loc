@@ -23,6 +23,7 @@ class IndexController extends SiteController
         $data = [
             'employees1' => $employees,
             'role'      => 1,
+            'department'=> 0,
             'iterator'  => 0
         ];
 

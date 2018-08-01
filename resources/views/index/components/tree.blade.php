@@ -1,15 +1,20 @@
-<ul>
-<?php echo count($employees) ?>
-
 
 @foreach($employees as $k=>$employee)
-    <?php next($employees) ?>
-    @if($role < $employee->role_id)
-        <?php $role = $employee->role_id; next($employees)?>
-        <li>{{ ($employee->department_id != 0)? $employee->department->title:'' }}</li>
-       @include('index.components.tree', ['employees' => $employees])
+    @if($department < $employee->department_id)
+        <?php $department = $employee->department_id;?>
+        @if($employee->role_id > 1)</ul></ul>@endif
+        <ul>
+            <li>{{ ($employee->department_id != 0)? $employee->department->title:'' }}</li>
+        </ul>
+        <ul>
+            <ul>
+            @include('index.components.tree', ['employees' => $employees, 'department' => $department])
+        </ul>
+        @break
     @endif
-    <li>{{$k . '.' .$employee->name . ' - ' . $employee->role_id}}  </li>
 
+    @if($department == $employee->department_id)
+    <li>{{$k . '.' .$employee->name . ' - ' . $employee->role_id . ' - ' . (($employee->department_id != 0)? $employee->department->title:'')}}  </li>
+    @endif
 @endforeach
-</ul>
+

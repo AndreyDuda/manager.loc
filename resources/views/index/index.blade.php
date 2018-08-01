@@ -18,4 +18,5 @@
 @endforeach
 
 </table>--}}
+<ul>
 @include('index.components.tree', ['employees' => $employees1])
