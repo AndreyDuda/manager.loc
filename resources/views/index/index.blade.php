@@ -1,3 +1,4 @@
+{{--
 <table class="table_employees">
     <tr class="table_head">
         <th>Фамилия</th>
@@ -16,4 +17,5 @@
     </tr>
 @endforeach
 
-</table>
+</table>--}}
+@include('index.components.tree', ['employees' => $employees1])
