@@ -1,19 +1,20 @@
 @include('index.components.tree', ['employees' => $employees, 'department' => $department, 'role' => $role])
 
+
+
 <ul>
     @foreach($employees as $employee)
         @if($role != $employee->role_id)
             @if($department != $employee->department_id)
                 @if($role > $employee->role_id)
                 </ul>
-                    <li>{{$employee->department->title}}</li>
-                    <ul>
+
                 @else
                  <ul>
-                    <li>{{$employee->department->title}}</li>
-                    <ul>
-                @endif
 
+                @endif
+                     <li>{{$employee->department->title}}</li>
+                     <ul>
             @elseif($role < $employee->role_id)
                  <ul>
             @else
@@ -27,4 +28,6 @@
                     <li>{{$employee->id . '. ' .$employee->surname .' '.$employee->name . ' - ' . $employee->role_id . ' - ' . (($employee->department_id != 0)? $employee->department->title:'')}}  </li>
             @endif
     @endforeach
+        </ul>
+    </ul>
 </ul>
