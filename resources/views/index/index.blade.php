@@ -1,8 +1,7 @@
-@include('index.components.tree', ['employees' => $employees, 'department' => $department, 'role' => $role])
+{{--@include('index.components.tree', ['employees' => $employees, 'department' => $department, 'role' => $role])--}}
 
-
-
-<ul>
+<div class="accordion" >
+<ul >
     @foreach($employees as $employee)
         @if($role != $employee->role_id)
             @if($department != $employee->department_id)
@@ -10,13 +9,13 @@
                 </ul>
 
                 @else
-                 <ul>
+                 <ul class="second">
 
                 @endif
                      <li>{{$employee->department->title}}</li>
-                     <ul>
+                     <ul class="second">
             @elseif($role < $employee->role_id)
-                 <ul>
+                 <ul class="second">
             @else
                  </ul>
             @endif
@@ -31,3 +30,4 @@
         </ul>
     </ul>
 </ul>
+</div>

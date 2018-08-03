@@ -25,3 +25,11 @@ ul{
 }
 
 
+.second{
+    display:none;
+}
+
+.second li:first-child{
+    color:red!important;
+    background: #2ab27b;
+}
