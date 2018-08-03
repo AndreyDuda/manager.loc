@@ -21,10 +21,9 @@ class IndexController extends SiteController
     {
         $employees = $this->employees_rep->get('*', true);
         $data = [
-            'employees1' => $employees,
+            'employees' => $employees,
             'role'      => 1,
-            'department'=> 0,
-            'iterator'  => 0
+            'department'=> 0
         ];
 
         $content = view( 'index.index')->with($data)->render();

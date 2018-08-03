@@ -1,22 +1,30 @@
-{{--
-<table class="table_employees">
-    <tr class="table_head">
-        <th>Фамилия</th>
-        <th>Имя</th>
-        <th>Отчество</th>
-        <th>Должность</th>
-        <th>Отдел</th>
-    </tr>
-@foreach($employees as $employee)
-    <tr>
-        <td>{{$employee->surname}}</td>
-        <td>{{$employee->name}}</td>
-        <td>{{$employee->patronymic}}</td>
-        <td>{{$employee->role->title}}</td>
-        <td>{{$employee->department->title OR ''}}</td>
-    </tr>
-@endforeach
+@include('index.components.tree', ['employees' => $employees, 'department' => $department, 'role' => $role])
 
-</table>--}}
 <ul>
-@include('index.components.tree', ['employees' => $employees1])
+    @foreach($employees as $employee)
+        @if($role != $employee->role_id)
+            @if($department != $employee->department_id)
+                @if($role > $employee->role_id)
+                </ul>
+                    <li>{{$employee->department->title}}</li>
+                    <ul>
+                @else
+                 <ul>
+                    <li>{{$employee->department->title}}</li>
+                    <ul>
+                @endif
+
+            @elseif($role < $employee->role_id)
+                 <ul>
+            @else
+                 </ul>
+            @endif
+
+            <?php $role = $employee->role_id; $department = $employee->department_id?>
+        @endif
+
+            @if($role == $employee->role_id)
+                    <li>{{$employee->id . '. ' .$employee->surname .' '.$employee->name . ' - ' . $employee->role_id . ' - ' . (($employee->department_id != 0)? $employee->department->title:'')}}  </li>
+            @endif
+    @endforeach
+</ul>
