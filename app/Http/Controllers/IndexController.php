@@ -22,13 +22,25 @@ class IndexController extends SiteController
         $employees = $this->employees_rep->get('*', true);
         $data = [
             'employees' => $employees,
-            'role'      => 1,
+            'role'      => 0,
             'department'=> 0
         ];
 
         $content = view( 'index.index')->with($data)->render();
         $this->vars = array_add($this->vars, 'content', $content);
         return $this->renderOutput();
-
     }
+
+    public function getEmployeesInfo()
+    {
+        $employees = $this->employees_rep->get('*', true);
+        $data = [
+            'employees' => $employees
+        ];
+
+        $content = view( 'index.get_employees_Info')->with($data)->render();
+        $this->vars = array_add($this->vars, 'content', $content);
+        return $this->renderOutput();
+    }
+
 }

@@ -8,6 +8,7 @@
 .table_employees tr.table_head{
     background: gray;
     color:white;
+    text-align: center;
 }
 .maine_block{
     margin: 15px;
@@ -23,6 +24,21 @@ ul{
     margin-bottom: 0;
     padding-bottom: 0;
 }
+
+.table_employees tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+.table_employees .table_body td:nth-child(n+4) {
+    text-align: center;
+}
+
+.sort_simvol{
+
+    margin-left: 15px;
+}
+
+
 
 
 .second{

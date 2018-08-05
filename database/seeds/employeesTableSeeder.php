@@ -22,7 +22,7 @@ class employeesTableSeeder extends Seeder
                     'salary'               => '50000',
                     'date_started_at_work' => date('Y-m-d H:i:s'),
                     'role_id'              => 1,
-                    'department_id'        => 0,
+                    'department_id'        => 1,
                 ],
                 [
                     'surname'              => 'Dzuba',
@@ -31,7 +31,7 @@ class employeesTableSeeder extends Seeder
                     'salary'               => '45000',
                     'date_started_at_work' => date('Y-m-d H:i:s'),
                     'role_id'              => 2,
-                    'department_id'        => 0,
+                    'department_id'        => 1,
                 ],
                 [
                     'surname'              => 'Mishin',
@@ -40,7 +40,7 @@ class employeesTableSeeder extends Seeder
                     'salary'               => '40000',
                     'date_started_at_work' => date('Y-m-d H:i:s'),
                     'role_id'              => 3,
-                    'department_id'        => 1,
+                    'department_id'        => 2,
                 ],
                 [
                     'surname'              => 'Bunak',
@@ -49,7 +49,7 @@ class employeesTableSeeder extends Seeder
                     'salary'               => '35000',
                     'date_started_at_work' => date('Y-m-d H:i:s'),
                     'role_id'              => 4,
-                    'department_id'        => 1,
+                    'department_id'        => 2,
                 ],
                 [
                     'surname'              => 'Mishin',
@@ -58,7 +58,7 @@ class employeesTableSeeder extends Seeder
                     'salary'               => '40000',
                     'date_started_at_work' => date('Y-m-d H:i:s'),
                     'role_id'              => 3,
-                    'department_id'        => 2,
+                    'department_id'        => 3,
                 ],
                 [
                     'surname'              => 'Mirniy',
@@ -67,7 +67,7 @@ class employeesTableSeeder extends Seeder
                     'salary'               => '35000',
                     'date_started_at_work' => date('Y-m-d H:i:s'),
                     'role_id'              => 4,
-                    'department_id'        => 2,
+                    'department_id'        => 3,
                 ],
                 [
                     'surname'              => 'Kapustin',
@@ -76,7 +76,7 @@ class employeesTableSeeder extends Seeder
                     'salary'               => '40000',
                     'date_started_at_work' => date('Y-m-d H:i:s'),
                     'role_id'              => 3,
-                    'department_id'        => 3,
+                    'department_id'        => 4,
                 ],
                 [
                     'surname'              => 'Frosin',
@@ -85,7 +85,7 @@ class employeesTableSeeder extends Seeder
                     'salary'               => '35000',
                     'date_started_at_work' => date('Y-m-d H:i:s'),
                     'role_id'              => 4,
-                    'department_id'        => 3,
+                    'department_id'        => 4,
                 ]
             ]);
 

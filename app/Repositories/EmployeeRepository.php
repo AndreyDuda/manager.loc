@@ -26,4 +26,5 @@ class EmployeeRepository extends Repository
         }
         return $builder->get();
     }
+
 }

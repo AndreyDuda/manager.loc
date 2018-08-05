@@ -15,6 +15,9 @@ class departmentsTableSeeder extends Seeder
         DB::table('departments')->insert(
             [
                 [
+                    'title'              => 'Компания Рога и копыта'
+                ],
+                [
                     'title'              => 'Отдел разработки'
                 ],
                 [
