@@ -8,6 +8,7 @@
 
 namespace App\Repositories;
 use App\Employees;
+use Illuminate\Support\Facades\DB;
 
 class EmployeeRepository extends Repository
 {
@@ -24,6 +25,18 @@ class EmployeeRepository extends Repository
         if($order){
             $builder->orderBy('department_id','ASC')->orderBy('role_id','ASC');
         }
+        return $builder->get();
+    }
+
+    public function getOrder($sort, $type)
+    {
+        $builder = DB::table('employees')->join('departments', 'employees.department_id', '=', 'departments.id')->join('roles', 'employees.role_id', '=', 'roles.id')->select('employees.*','departments.title as departments', 'roles.title as roles' );
+
+
+        if($sort && $type){
+            $builder =$builder->orderBy($sort, $type);
+        }
+
         return $builder->get();
     }
 

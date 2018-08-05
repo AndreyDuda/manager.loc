@@ -31,9 +31,13 @@ class IndexController extends SiteController
         return $this->renderOutput();
     }
 
-    public function getEmployeesInfo()
+    public function getEmployeesInfo(Request $request, $sort = false)
     {
-        $employees = $this->employees_rep->get('*', true);
+        $sort = $request->sort;
+        $type = $request->type;
+
+        $employees = $this->employees_rep->getOrder($sort, $type);
+/*dd($employees);*/
         $data = [
             'employees' => $employees
         ];
