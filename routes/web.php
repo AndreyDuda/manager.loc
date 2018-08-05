@@ -11,7 +11,8 @@
 |
 */
 
-Route::get('/', 'IndexController@index')->name('index');
+Route::get('/',          'IndexController@index')->name('index');
+Route::get('/employees', 'IndexController@getEmployeesInfo')->name('employees');
 
 /*Route::get('/', function () {
     return view('welcome');

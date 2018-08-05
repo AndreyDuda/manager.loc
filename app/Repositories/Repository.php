@@ -29,4 +29,10 @@ abstract class Repository
         return $result;
     }
 
+    public function getOrder($order)
+    {
+        $builder = $this->model->select('*')->orderBy($order);
+        return $result;
+    }
+
 }
