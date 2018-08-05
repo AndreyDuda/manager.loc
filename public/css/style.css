@@ -35,6 +35,7 @@ ul{
     background-color: #f2f2f2
 }
 
+
 .table_employees .table_body td:nth-child(n+4) {
     text-align: center;
 }
@@ -48,12 +49,26 @@ ul{
 .sort_simvol a{
     color:white;
 }
+.sort_simvol_a {
+    color:black;
+
+}
+
 
 .sort_simvol a:hover{
     text-decoration: none;
     color:black;
     outline:1px solid white;
     background: white;
+
+}
+
+.sort_simvol_a:hover{
+    text-decoration: none;
+    color:black;
+    outline:1px solid white;
+    background: white;
+    cursor: pointer;
 
 }
 

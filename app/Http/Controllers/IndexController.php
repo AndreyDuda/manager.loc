@@ -38,7 +38,7 @@ class IndexController extends SiteController
         $search = $request->search1;
 
         $employees = $this->employees_rep->getOrder($sort, $type, $search);
-/*dd($employees);*/
+
         $data = [
             'employees' => $employees
         ];
@@ -47,5 +47,16 @@ class IndexController extends SiteController
         $this->vars = array_add($this->vars, 'content', $content);
         return $this->renderOutput();
     }
+    public function ajaxSearchAndSort(Request $request)
+    {
+        $sort = $request->sort;
+        $type = $request->type;
+        $search = $request->search1;
+        $employees = $this->employees_rep->getOrder($sort, $type, $search);
+
+
+        return json_encode($employees);
+    }
+
 
 }

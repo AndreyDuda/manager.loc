@@ -36,8 +36,6 @@ class EmployeeRepository extends Repository
 
 
         if($search){
-           /*LOWER(surname) like '%$search%' OR LOWER(name) like '%$search%' OR LOWER(patronymic) like '%$search%'
-            OR LOWER(salary) like '%$search%' OR LOWER(departments) like '%$search%' OR LOWER(roles) like '%$search%'"*/
             $where = "LOWER(employees.surname) like '%$search%' OR LOWER(employees.name) like '%$search%' OR LOWER(employees.patronymic) like '%$search%'
             OR (employees.salary) like '%$search%' OR LOWER(departments.title) like '%$search%' OR LOWER(roles.title) like '%$search%'";
             $builder = $builder->whereRaw($where);

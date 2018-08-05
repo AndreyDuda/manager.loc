@@ -11,8 +11,9 @@
 |
 */
 
-Route::get('/',          'IndexController@index')->name('index');
+Route::get('/',                                     'IndexController@index')->name('index');
 Route::get('/employees/{sort?}/{type?}/{search1?}', 'IndexController@getEmployeesInfo')->name('employees');
+Route::post('/employees',                           'IndexController@ajaxSearchAndSort')->name('employeesSearchAndSort');
 
 /*Route::get('/', function () {
     return view('welcome');
