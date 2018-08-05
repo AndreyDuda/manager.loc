@@ -2,14 +2,20 @@
     padding:0;
     margin:0;
 }
+.search1{
+    float: right;
+}
+
 .table_employees{
     width: 100%;
 }
 .table_employees tr.table_head{
     background: gray;
     color:white;
-    text-align: center;
+    text-align: left;
 }
+
+
 .maine_block{
     margin: 15px;
 }

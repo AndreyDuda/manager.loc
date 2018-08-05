@@ -28,14 +28,25 @@ class EmployeeRepository extends Repository
         return $builder->get();
     }
 
-    public function getOrder($sort, $type)
+    public function getOrder($sort, $type, $search)
     {
-        $builder = DB::table('employees')->join('departments', 'employees.department_id', '=', 'departments.id')->join('roles', 'employees.role_id', '=', 'roles.id')->select('employees.*','departments.title as departments', 'roles.title as roles' );
+        $builder = DB::table('employees')->join('departments', 'employees.department_id', '=', 'departments.id')
+                                         ->join('roles', 'employees.role_id', '=', 'roles.id')
+                                         ->select('employees.*','departments.title as departments', 'roles.title as roles' );
 
+
+        if($search){
+           /*LOWER(surname) like '%$search%' OR LOWER(name) like '%$search%' OR LOWER(patronymic) like '%$search%'
+            OR LOWER(salary) like '%$search%' OR LOWER(departments) like '%$search%' OR LOWER(roles) like '%$search%'"*/
+            $where = "LOWER(employees.surname) like '%$search%' OR LOWER(employees.name) like '%$search%' OR LOWER(employees.patronymic) like '%$search%'
+            OR (employees.salary) like '%$search%' OR LOWER(departments.title) like '%$search%' OR LOWER(roles.title) like '%$search%'";
+            $builder = $builder->whereRaw($where);
+        }
 
         if($sort && $type){
             $builder =$builder->orderBy($sort, $type);
         }
+
 
         return $builder->get();
     }

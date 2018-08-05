@@ -12,7 +12,7 @@
 */
 
 Route::get('/',          'IndexController@index')->name('index');
-Route::get('/employees/{sort?}/{type?}', 'IndexController@getEmployeesInfo')->name('employees');
+Route::get('/employees/{sort?}/{type?}/{search1?}', 'IndexController@getEmployeesInfo')->name('employees');
 
 /*Route::get('/', function () {
     return view('welcome');

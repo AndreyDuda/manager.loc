@@ -35,8 +35,9 @@ class IndexController extends SiteController
     {
         $sort = $request->sort;
         $type = $request->type;
+        $search = $request->search1;
 
-        $employees = $this->employees_rep->getOrder($sort, $type);
+        $employees = $this->employees_rep->getOrder($sort, $type, $search);
 /*dd($employees);*/
         $data = [
             'employees' => $employees
