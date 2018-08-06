@@ -19,6 +19,12 @@ Route::post('/employees',                           'IndexController@ajaxSearchA
     return view('welcome');
 });*/
 
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+/*Route::get('/home', 'HomeController@index')->name('home');*/
+Route::group(['prefix'=>'crud','middleware' => 'auth'], function(){
+    Route::get('/',  'CRUD\EmployeeController@index')->name('crudEmployeeIndex');
+
+
+});

@@ -1,0 +1,33 @@
+<?php
+
+namespace App\Http\Controllers\CRUD;
+
+
+use Illuminate\Http\Request;
+use App\Repositories\RoleRepository;
+use App\Repositories\EmployeeRepository;
+use App\Repositories\DepartmentRepository;
+
+class EmployeeController extends SiteController
+{
+    //
+    public function __construct(EmployeeRepository $employees_rep)
+    {
+        $this->employees_rep = $employees_rep;
+        $this->template = '.index';
+    }
+
+    public function index()
+    {
+        $employees = $this->employees_rep->get('*', true);
+        $data = [
+            'employees' => $employees,
+            'role'      => 0,
+            'department'=> 0
+        ];
+
+        $content = view( 'crud.employee.index')->with($data)->render();
+        $this->vars = array_add($this->vars, 'content', $content);
+        return $this->renderOutput();
+    }
+}

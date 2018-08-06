@@ -47,6 +47,7 @@ class IndexController extends SiteController
         $this->vars = array_add($this->vars, 'content', $content);
         return $this->renderOutput();
     }
+
     public function ajaxSearchAndSort(Request $request)
     {
         $sort = $request->sort;
