@@ -1,16 +1,7 @@
 {{ csrf_field() }}
-<input type="hidden" class="url" value="{{ route('employeesSearchAndSort') }}">
+<input type="hidden" class="url" value="{{ route('deleteEmployee') }}">
 <div class="search">
     <div class="search1">
-        <form>
-            <input name="search1" placeholder="Поиск сотрудника">
-            <input type="submit" value="Найти">
-        </form>
-    </div>
-    <div style="clear: both;"></div>
-    <div class="search1">
-        <label>Поиск Ajax</label>
-
         <input class="search_ajax" name="search2" placeholder="Поиск сотрудника">
         <input type="button" class="search_but" value="Найти">
     </div>
@@ -19,48 +10,28 @@
 
     <tr class="table_head">
         <th>Фамилия
-            <span class="sort_simvol"><a href="{{ route('employees', ['sort' =>'surname', 'ASC']) }}"> &uarr;</a> <a href="{{ route('employees', ['sort' =>'surname', 'DESC']) }}">&darr;</a></span>
+            <span class="sort_simvol_a" data-control="1" data-sort='surname' data-type='ASC'> &#11015;</span><span class="sort_simvol_a" data-control="1" data-sort='surname' data-type='DESC'>&#11014;</span>
         </th>
         <th>Имя
-            <span class="sort_simvol"><a href="{{ route('employees', ['sort' =>'name', 'ASC']) }}"> &uarr;</a><a href="{{ route('employees', ['sort' =>'name', 'DESC']) }}"> &darr;</a></span>
+            <span class="sort_simvol_a" data-control="1" data-sort='name' data-type='ASC'> &#11015;</span><span class="sort_simvol_a" data-control="1" data-sort='name' data-type='DESC'> &#11014;</span>
         </th>
         <th>Отчество
-            <span class="sort_simvol"><a href="{{ route('employees', ['sort' =>'patronymic', 'ASC']) }}"> &uarr;</a><a href="{{ route('employees', ['sort' =>'patronymic', 'DESC']) }}"> &darr;</a></span>
+            <span class="sort_simvol_a" data-control="1" data-sort='patronymic' data-type='ASC'>&#11015;</span><span class="sort_simvol_a" data-control="1" data-sort='patronymic' data-type='DESC'> &#11014;</span>
         </th>
         <th>Зарплата
-            <span class="sort_simvol"><a href="{{ route('employees', ['sort' =>'salary', 'ASC']) }}"> &uarr;</a><a href="{{ route('employees', ['sort' =>'salary', 'DESC']) }}">  &darr;</a></span>
+            <span class="sort_simvol_a" data-control="1" data-sort='salary' data-type='ASC'> &#11015;</span> <span class="sort_simvol_a" data-control="1" data-sort='salary' data-type='DESC'>  &#11014;</span>
         </th>
         <th>Должность
-            <span class="sort_simvol"><a href="{{ route('employees', ['sort' =>'roles', 'ASC']) }}"> &uarr;</a><a href="{{ route('employees', ['sort' =>'roles', 'DESC']) }}">  &darr;</a></span>
+            <span class="sort_simvol_a" data-control="1" data-sort='roles' data-type='ASC'>&#11015;</span><span class="sort_simvol_a" data-control="1" data-sort='roles' data-type='DESC'> &#11014;</span>
         </th>
         <th>Отдел
-            <span class="sort_simvol"><a href="{{ route('employees', ['sort' =>'departments', 'ASC']) }}"> &uarr;</a><a href="{{ route('employees', ['sort' =>'departments', 'DESC']) }}"> &darr;</a></span>
+            <span class="sort_simvol_a" data-control="1" data-sort='departments' data-type='ASC'>&#11015;</span><span class="sort_simvol_a" data-control="1" data-sort='departments' data-type='DESC'> &#11014;</span>
         </th>
         <th>Дата приема на раюоту
-            <span class="sort_simvol"><a href="{{ route('employees', ['sort' =>'date_started_at_work', 'ASC']) }}">&uarr;</a><a href="{{ route('employees', ['sort' =>'date_started_at_work', 'DESC']) }}"> &darr;</a></span>
+            <span class="sort_simvol_a" data-control="1" data-sort='date_started_at_work' data-type='ASC'>&#11015;</span><span class="sort_simvol_a" data-control="1" data-sort='date_started_at_work' data-type='ASC'> &#11014;</span>
         </th>
-    </tr>
-    <tr class="table_seart">
-        <th>Сортировка ajax
-            <span class="sort_simvol_a" data-sort='surname' data-type='ASC'> &uarr;</span><span class="sort_simvol_a" data-sort='surname' data-type='DESC'>&darr;</span>
-        </th>
-        <th>Сортировка ajax
-            <span class="sort_simvol_a" data-sort='name' data-type='ASC'>  &uarr;</span><span class="sort_simvol_a" data-sort='name' data-type='DESC'> &darr;</span>
-        </th>
-        <th>Сортировка ajax
-            <span class="sort_simvol_a" data-sort='patronymic' data-type='ASC'>  &uarr;</span><span class="sort_simvol_a" data-sort='patronymic' data-type='DESC'> &darr;</span>
-        </th>
-        <th>Сортировка ajax
-            <span class="sort_simvol_a" data-sort='salary' data-type='ASC'>  &uarr;</span> <span class="sort_simvol_a" data-sort='salary' data-type='DESC'>  &darr;</span>
-        </th>
-        <th>Сортировка ajax
-            <span class="sort_simvol_a" data-sort='roles' data-type='ASC'> &uarr;</span><span class="sort_simvol_a" data-sort='roles' data-type='DESC'> &darr;</span>
-        </th>
-        <th>Сортировка ajax
-            <span class="sort_simvol_a" data-sort='departments' data-type='ASC'>  &uarr;</span><span class="sort_simvol_a" data-sort='departments' data-type='DESC'> &darr;</span>
-        </th>
-        <th>Сортировка ajax
-            <span class="sort_simvol_a" data-sort='date_started_at_work' data-type='ASC'> &uarr;</span><span class="sort_simvol_a" data-sort='date_started_at_work' data-type='ASC'> &darr;</span>
+        <th>
+            Управление
         </th>
     </tr>
 
@@ -73,6 +44,7 @@
             <td>{{$employee->roles}}</td>
             <td>{{(($employee->department_id != 1)?$employee->departments : '')}}</td>
             <td>{{$employee->date_started_at_work}}</td>
+            <td><a href="{{ route('crudEmployeeShow', ['id' => $employee->id]) }}"> <span data-id="{{ $employee->id }}" title="Редактировать" class="edit_simvol">&#9998 </span></a> <span data-id="{{ $employee->id }}" title="Удалить" class="del_simvol">&#10006; </span> </td>
         </tr>
     @endforeach
 

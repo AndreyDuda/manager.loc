@@ -24,7 +24,9 @@ Auth::routes();
 
 /*Route::get('/home', 'HomeController@index')->name('home');*/
 Route::group(['prefix'=>'crud','middleware' => 'auth'], function(){
-    Route::get('/',  'CRUD\EmployeeController@index')->name('crudEmployeeIndex');
+    Route::get('/',                'CRUD\EmployeeController@index')->name('crudEmployeeIndex');
+    Route::get('/show/{id}',            'CRUD\EmployeeController@show')->name('crudEmployeeShow');
+    Route::delete('/delete/{id?}', 'CRUD\EmployeeController@delete')->name('deleteEmployee');
 
 
 });

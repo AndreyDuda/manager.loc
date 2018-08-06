@@ -17,17 +17,33 @@ class EmployeeController extends SiteController
         $this->template = '.index';
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $employees = $this->employees_rep->get('*', true);
+        $sort = $request->sort;
+        $type = $request->type;
+        $search = $request->search1;
+
+        $employees = $this->employees_rep->getOrder($sort, $type, $search);
+
         $data = [
-            'employees' => $employees,
-            'role'      => 0,
-            'department'=> 0
+            'employees' => $employees
         ];
 
         $content = view( 'crud.employee.index')->with($data)->render();
         $this->vars = array_add($this->vars, 'content', $content);
         return $this->renderOutput();
     }
+    public function delete(Request $request)
+    {
+        $id=false;
+        if($id = $request->id){
+            $employees = $this->employees_rep->getOne($id);
+            $employees->delete();
+        }
+
+        return $id;
+
+
+    }
+
 }

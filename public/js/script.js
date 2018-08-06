@@ -6,11 +6,11 @@ $(".accordion li").click(function(){
 $(function () {
 $('.search1 .search_but').click(function () {
 
-    var search = $('.search_ajax').val();
-    var url    = $('.url').val();
-    var length = 0;
-    var table  = '';
-    console.log($('meta[name="csrf-token"]').attr('content'));
+    var search  = $('.search_ajax').val();
+    var url     = $('.url').val();
+    var length  = 0;
+    var table   = '';
+    var control = $(this).data('control');
 
     $.ajax({
         type: 'POST',
@@ -33,6 +33,9 @@ $('.search1 .search_but').click(function () {
                          '<td>'+data[i].roles+'</td>'+
                          '<td>'+data[i].departments+'</td>'+
                          '<td>'+data[i].date_started_at_work+'</td>';
+                if(control){
+                    table  += ' <td> <span data-id="'+data[i].id +'" title="Редактировать" class="edit_simvol">&#9998 </span> <span data-id="'+data[i].id +'" title="Удалить" class="del_simvol">&#10006; </span> </td>';
+                }
                 table  += '</tr>';
 
             }
@@ -54,7 +57,7 @@ $('.search1 .search_but').click(function () {
         var url    = $('.url').val();
         var length = 0;
         var table  = '';
-        console.log($('meta[name="csrf-token"]').attr('content'));
+        var control = $(this).data('control');
 
         $.ajax({
             type: 'POST',
@@ -77,6 +80,9 @@ $('.search1 .search_but').click(function () {
                         '<td>'+data[i].roles+'</td>'+
                         '<td>'+data[i].departments+'</td>'+
                         '<td>'+data[i].date_started_at_work+'</td>';
+                    if(control){
+                        table  += ' <td> <span data-id="'+data[i].id +'" title="Редактировать" class="edit_simvol">&#9998 </span> <span data-id="'+data[i].id +'" title="Удалить" class="del_simvol">&#10006; </span> </td>';
+                    }
                     table  += '</tr>';
 
                 }
@@ -91,6 +97,33 @@ $('.search1 .search_but').click(function () {
 
     });
 
+
+
+
+
+
+/*Управление сотредниками    */
+
+
+    $('.table_employees').on('click', '.del_simvol', function(){
+        var id = $(this).data('id');
+        var obj = $(this);
+        var url    = $('.url').val();
+        console.log($('meta[name="csrf-token"]').attr('content'));
+        $.ajax({
+            type: 'delete',
+            url: url,
+            data: {id: id, _token:  $('meta[name="csrf-token"]').attr('content')},
+            datatype: 'JSON',
+            success: function (data) {
+                   obj.closest('tr').remove();
+            },
+            error: function () {
+
+            }
+        });
+
+    });
 
 
 });

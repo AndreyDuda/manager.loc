@@ -72,6 +72,18 @@ ul{
 
 }
 
+.del_simvol{
+    color:red;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.edit_simvol{
+    color:coral;
+    font-size: 20px;
+    cursor: pointer;
+}
+
 
 .second{
     display:none;
