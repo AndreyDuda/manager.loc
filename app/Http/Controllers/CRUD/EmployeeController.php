@@ -42,8 +42,26 @@ class EmployeeController extends SiteController
         }
 
         return $id;
+    }
 
+    public function show(Request $request)
+    {
+        $id = $request->id;
+
+        if($employees = $this->employees_rep->getOne($id)){
+            $data = [
+                'employees' => $employees
+            ];
+
+            $content = view( 'crud.employee.show')->with($data)->render();
+            $this->vars = array_add($this->vars, 'content', $content);
+            return $this->renderOutput();
+        }else{
+            return redirect()->back();
+
+        }
 
     }
+
 
 }

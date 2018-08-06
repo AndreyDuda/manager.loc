@@ -85,6 +85,12 @@ ul{
 }
 
 
+.photo_show{
+    border:1px solid black;
+    width: 250px;
+    height: 250px;
+}
+
 .second{
     display:none;
 }
