@@ -1,12 +1,29 @@
 <div class="container-fluid">
 <form method="POST" action="{{ route('crudEmployeeUpdate') }}">
     {{ csrf_field() }}
+    <div>
     <div class="photo_show">
         @if(in_array($employee->photo, $images ))
             <img src="{{ asset('')}}img/employees/{{$employee->photo}}">
+    </div>
+        <div class="block" class="hidden_upload">
         @else
             <img src="{{ asset('')}}img/system/no_img.png">
+    </div>
+
+   {{-- <div class="block">--}}
+
         @endif
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+            </div>
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+            </div>
+        </div>
+    </div>
     </div>
 <input type="hidden" name="id" value="{{$employee->id}}">
     <div class="block">

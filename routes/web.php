@@ -27,6 +27,7 @@ Route::group(['prefix'=>'crud','middleware' => 'auth'], function(){
     Route::get('/',                'CRUD\EmployeeController@index')->name('crudEmployeeIndex');
     Route::get('/show/{id}',            'CRUD\EmployeeController@show')->name('crudEmployeeShow');
     Route::delete('/delete/{id?}', 'CRUD\EmployeeController@delete')->name('deleteEmployee');
+    Route::post('/update/{id?}', 'CRUD\EmployeeController@update')->name('crudEmployeeUpdate');
 
 
 });
