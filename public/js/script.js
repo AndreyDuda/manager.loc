@@ -125,5 +125,12 @@ $('.search1 .search_but').click(function () {
 
     });
 
+    $('.photo_show').on('click', '.button_del', function () {
+        $(this).hide();
+        var url = $('#url_img').val();
+       $(this).next('img').attr('src', url+'system/no_img.png');
+       $('.photo_upload').removeClass('hidden_block').addClass('block');
+       $('#file').val('');
+    });
 
 });

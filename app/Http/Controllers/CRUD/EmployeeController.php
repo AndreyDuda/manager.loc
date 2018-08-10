@@ -75,8 +75,15 @@ class EmployeeController extends SiteController
     }
     public function update(Request $request)
     {
-        $input = $request->input();
-        dd($input);
+        $input = $request->except('_token');
+       // $input->ex ('_token');
+        if($request->file()){
+            /*$request->file()->move('/img/employees', $request->file()->getClientOriginalName());*/
+        }else{
+
+
+        }
+        dd($request->file());
     }
 
 

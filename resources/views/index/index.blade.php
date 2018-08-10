@@ -1,9 +1,5 @@
 {{--@include('index.components.tree', ['employees' => $employees, 'department' => $department, 'role' => $role])--}}
 
-<div class="container-fluid">
-    <div class="photo_show"><img src="{{ asset('public')}}/img/system/no_img.png"></div>
-</div>
-
 <ul >
     @foreach($employees as $employee)
         @if($role != $employee->role_id)
