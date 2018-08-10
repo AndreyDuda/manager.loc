@@ -29,6 +29,12 @@ abstract class Repository
         return $result;
     }
 
+    public function update($input)
+    {
+        return $this->model->save($input);
+
+    }
+
 
 
 
