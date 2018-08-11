@@ -23,8 +23,9 @@
         <a class="nav-link" href="{{ route('crudEmployeeIndex') }}">Управление</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
+        <a class="nav-link" href="{{ route('crudEmployeeNew') }}">Добавить нового сотрудника</a>
     </li>
+
 </ul>
 
 <div class="maine_block">

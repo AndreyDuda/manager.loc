@@ -35,6 +35,15 @@ abstract class Repository
 
     }
 
+    public  function new($input)
+    {
+        $model = new $this->model;
+        $model->fill($input);
+        $model->save($input);
+        return $model->id;
+    }
+
+
 
 
 

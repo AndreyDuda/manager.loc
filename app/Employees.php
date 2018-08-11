@@ -8,7 +8,7 @@ class Employees extends Model
 {
     //
     protected $table = 'employees';
-    protected $fillable = ['surname', 'name', 'photo','patronymic', 'salary', 'date_started_at_work', 'role_id', 'department_id'];
+    protected $fillable = ['surname', 'name', 'photo','patronymic', 'salary', 'date_started_at_work', 'role_id', 'department_id', 'created_at', 'updated_at'];
 
 
     public function role()

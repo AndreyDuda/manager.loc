@@ -14,7 +14,7 @@ class ChangeEmployeesTable extends Migration
     public function up()
     {
         Schema::table('employees', function (Blueprint $table) {
-            $table->string('photo', 255);
+            $table->string('photo', 255)->default('null');
         });
     }
 

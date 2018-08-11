@@ -25,9 +25,11 @@ Auth::routes();
 /*Route::get('/home', 'HomeController@index')->name('home');*/
 Route::group(['prefix'=>'crud','middleware' => 'auth'], function(){
     Route::get('/',                'CRUD\EmployeeController@index')->name('crudEmployeeIndex');
-    Route::get('/show/{id}',            'CRUD\EmployeeController@show')->name('crudEmployeeShow');
+    Route::get('/show/{id}',       'CRUD\EmployeeController@show')->name('crudEmployeeShow');
     Route::delete('/delete/{id?}', 'CRUD\EmployeeController@delete')->name('deleteEmployee');
-    Route::post('/update/{id?}', 'CRUD\EmployeeController@update')->name('crudEmployeeUpdate');
+    Route::post('/update/{id?}',   'CRUD\EmployeeController@update')->name('crudEmployeeUpdate');
+    Route::get('/new/',            'CRUD\EmployeeController@New')->name('crudEmployeeNew');
+    Route::post('/new/{id?}',       'CRUD\EmployeeController@New')->name('crudEmployeeNewSave');
 
 
 });

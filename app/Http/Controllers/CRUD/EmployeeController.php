@@ -86,13 +86,41 @@ class EmployeeController extends SiteController
             unset($input['photo']);
             $input = array_add($input, 'photo',$photo);
         }
-
         $employee =  $this->employees_rep->getOne($id);
-
         $employee->update($input);
-       /* dd($input);*/
         return redirect()->back();
-       /* dd($employee);*/
+
+    }
+
+    public function new(Request $request)
+    {
+        if($request->isMethod('post')) {
+            $input = $request->except('_token');
+
+
+            if($request->file()){
+                $photo = $request->file('photo')->getClientOriginalName();
+
+                $request->file('photo')->move('img/employees', $photo);
+                unset($input['photo']);
+                $input = array_add($input, 'photo',$photo);
+            }
+            $employee =  $this->employees_rep;
+            $id = $employee->new($input);
+            return redirect()->route('crudEmployeeShow', ['id' => $id]);
+        }
+            $roles = $this->roles_rep->get();
+            $departments = $this->departments_rep->get();
+
+            $data = [
+                'roles' => $roles,
+                'departments' => $departments
+            ];
+
+            $content = view('crud.employee.new')->with($data)->render();
+            $this->vars = array_add($this->vars, 'content', $content);
+
+            return $this->renderOutput();
 
     }
 
