@@ -9,6 +9,8 @@
 <table class="table_employees">
 
     <tr class="table_head">
+        <th>фото
+        </th>
         <th>Фамилия
             <span class="sort_simvol_a" data-control="1" data-sort='surname' data-type='ASC'> &#11015;</span><span class="sort_simvol_a" data-control="1" data-sort='surname' data-type='DESC'>&#11014;</span>
         </th>
@@ -37,6 +39,13 @@
 
     @foreach($employees as $employee)
         <tr class="table_body">
+            <td>
+            @if(in_array($employee->photo, $images ))
+                <img class="mini_photo" src="{{ asset('')}}img/employees/{{$employee->photo}}">
+            @else
+                <img class="mini_photo" src="{{ asset('')}}img/system/no_img.png">
+            @endif
+            </td>
             <td>{{$employee->surname}}</td>
             <td>{{$employee->name}}</td>
             <td>{{$employee->patronymic}}</td>

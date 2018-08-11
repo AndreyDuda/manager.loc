@@ -6,6 +6,10 @@
     height: 100%;
 
 }
+
+.mini_photo{
+    height: 75px;
+}
 .photo_show{
     margin:0 auto;
     margin-bottom: 25px;

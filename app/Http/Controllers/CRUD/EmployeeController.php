@@ -25,10 +25,14 @@ class EmployeeController extends SiteController
         $type   = $request->type;
         $search = $request->search1;
 
+        $dir         = 'img/employees';
+        $images      = scandir($dir);
+
         $employees = $this->employees_rep->getOrder($sort, $type, $search);
 
         $data = [
-            'employees' => $employees
+            'employees' => $employees,
+            'images'    => $images
         ];
 
         $content    = view( 'crud.employee.index')->with($data)->render();
