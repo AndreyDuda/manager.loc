@@ -90,6 +90,6 @@ class employeesTableSeeder extends Seeder
             ]);
 
         //factory(App\Employees::class, 49988)->create();
-        factory(App\Employees::class, 499)->create();
+        factory(App\Employees::class, 4992)->create();
     }
 }
