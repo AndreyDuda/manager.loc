@@ -1,9 +1,11 @@
 {{ csrf_field() }}
-<input type="hidden" class="url" value="{{ route('deleteEmployee') }}">
+<input type="hidden" class="url_del" value="{{ route('deleteEmployee') }}">
+<input type="hidden" class="url" value="{{ route('employeesSearchAndSort') }}">
+<input type="hidden" class="url_img" value="{{ asset('')}}img/">
 <div class="search">
     <div class="search1">
         <input class="search_ajax" name="search2" placeholder="Поиск сотрудника">
-        <input type="button" class="search_but" value="Найти">
+        <input data-control="1" type="button" class="search_but" value="Найти">
     </div>
 </div>
 <table class="table_employees">

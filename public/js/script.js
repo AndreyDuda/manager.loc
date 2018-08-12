@@ -8,6 +8,7 @@ $('.search1 .search_but').click(function () {
 
     var search  = $('.search_ajax').val();
     var url     = $('.url').val();
+    var url_img = $('.url_img').val();
     var length  = 0;
     var table   = '';
     var control = $(this).data('control');
@@ -26,8 +27,11 @@ $('.search1 .search_but').click(function () {
             console.log(data[4]);
             for(var i=0; i<length; i++){
                 table  += '<tr class="table_body">';
-                table += '<td>'+data[i].name+'</td>'+
-                         '<td>'+data[i].surname+'</td>'+
+                if(control){
+                    table  += ' <td><img class="mini_photo" src="'+url_img+data[i].photo+'"> </td>';
+                }
+                table += '<td>'+data[i].surname+'</td>'+
+                         '<td>'+data[i].name+'</td>'+
                          '<td>'+data[i].patronymic+'</td>'+
                          '<td>'+data[i].salary+'</td>'+
                          '<td>'+data[i].roles+'</td>'+
@@ -51,14 +55,14 @@ $('.search1 .search_but').click(function () {
 });
 
     $('.sort_simvol_a').click(function () {
-
         var sort = $(this).data('sort');
         var type = $(this).data('type');
         var url    = $('.url').val();
+        var url_img = $('.url_img').val();
         var length = 0;
         var table  = '';
         var control = $(this).data('control');
-
+        alert(control);
         $.ajax({
             type: 'POST',
             url: url,
@@ -73,13 +77,16 @@ $('.search1 .search_but').click(function () {
                 console.log(data[4]);
                 for(var i=0; i<length; i++){
                     table  += '<tr class="table_body">';
-                    table += '<td>'+data[i].name+'</td>'+
-                        '<td>'+data[i].surname+'</td>'+
-                        '<td>'+data[i].patronymic+'</td>'+
-                        '<td>'+data[i].salary+'</td>'+
-                        '<td>'+data[i].roles+'</td>'+
-                        '<td>'+data[i].departments+'</td>'+
-                        '<td>'+data[i].date_started_at_work+'</td>';
+                    if(control){
+                        table  += ' <td><img class="mini_photo" src="'+url_img+data[i].photo+'"> </td>';
+                    }
+                    table += '<td>'+data[i].surname+'</td>'+
+                             '<td>'+data[i].name+'</td>'+
+                             '<td>'+data[i].patronymic+'</td>'+
+                             '<td>'+data[i].salary+'</td>'+
+                             '<td>'+data[i].roles+'</td>'+
+                             '<td>'+data[i].departments+'</td>'+
+                             '<td>'+data[i].date_started_at_work+'</td>';
                     if(control){
                         table  += ' <td> <span data-id="'+data[i].id +'" title="Редактировать" class="edit_simvol">&#9998 </span> <span data-id="'+data[i].id +'" title="Удалить" class="del_simvol">&#10006; </span> </td>';
                     }
@@ -108,8 +115,8 @@ $('.search1 .search_but').click(function () {
     $('.table_employees').on('click', '.del_simvol', function(){
         var id = $(this).data('id');
         var obj = $(this);
-        var url    = $('.url').val();
-        console.log($('meta[name="csrf-token"]').attr('content'));
+        var url    = $('.url_del').val();
+
         $.ajax({
             type: 'delete',
             url: url,

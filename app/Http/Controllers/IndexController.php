@@ -50,10 +50,21 @@ class IndexController extends SiteController
 
     public function ajaxSearchAndSort(Request $request)
     {
+        $dir         = 'img/employees';
+        $images      = scandir($dir);
+
         $sort = $request->sort;
         $type = $request->type;
         $search = $request->search1;
         $employees = $this->employees_rep->getOrder($sort, $type, $search);
+
+        foreach ($employees as $employee){
+            if(in_array($employee->photo, $images)){
+                $employee->photo = 'employees/'.$employee->photo;
+            }else{
+                $employee->photo = 'system/no_img.png';
+            }
+        }
 
 
         return json_encode($employees);

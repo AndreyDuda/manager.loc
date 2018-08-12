@@ -21,7 +21,7 @@
         @endif
 
         @if($role == $employee->role_id)
-                <li>{{$employee->id . '. ' .$employee->surname .' '.$employee->name . ' - ' . $employee->role->title }}  </li>
+                <li>{{$employee->surname .' '.$employee->name . ' - ' . $employee->role->title }}  </li>
         @endif
     @endforeach
         </ul>
